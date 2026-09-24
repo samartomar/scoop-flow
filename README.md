@@ -1,42 +1,21 @@
-# Scoop Bucket Template
+# scoop-flow
 
-<!-- Uncomment the following line after replacing placeholders -->
-<!-- [![Tests](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/ci.yml) [![Excavator](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml/badge.svg)](https://github.com/<username>/<bucketname>/actions/workflows/excavator.yml) -->
+[![Tests](https://github.com/samartomar/scoop-flow/actions/workflows/ci.yml/badge.svg)](https://github.com/samartomar/scoop-flow/actions/workflows/ci.yml) [![Excavator](https://github.com/samartomar/scoop-flow/actions/workflows/excavator.yml/badge.svg)](https://github.com/samartomar/scoop-flow/actions/workflows/excavator.yml)
 
-Template bucket for [Scoop](https://scoop.sh), the Windows command-line installer.
-
-## How do I use this template?
-
-1. Generate your own copy of this repository with the "Use this template"
-   button.
-2. Allow all GitHub Actions:
-   - Navigate to `Settings` - `Actions` - `General` - `Actions permissions`.
-   - Select `Allow all actions and reusable workflows`.
-   - Then `Save`.
-3. Workflow permissions:
-   - Navigate to `Settings` - `Actions` - `General` - `Workflow permissions`.
-   - Ensure `Read repository contents and packages permissions` is selected.
-   - Then `Save`.
-4. Document the bucket in `README.md`.
-5. Replace the placeholder repository string in `bin/auto-pr.ps1`.
-6. Create new manifests by copying `bucket/app-name.json.template` to
-   `bucket/<app-name>.json`.
-7. Commit and push changes.
-8. If you'd like your bucket to be indexed on `https://scoop.sh`, add the
-   topic `scoop-bucket` to your repository.
-
-## How do I install these manifests?
-
-After manifests have been committed and pushed, run the following:
+A [Scoop](https://scoop.sh) bucket for [Flow](https://github.com/samartomar/flow): hold a
+key, talk, let go, and the words paste into the window you were working in. Speech
+recognition runs on your machine; there is no API key.
 
 ```pwsh
-scoop bucket add <bucketname> https://github.com/<username>/<bucketname>
-scoop install <bucketname>/<manifestname>
+scoop bucket add flow https://github.com/samartomar/scoop-flow
+scoop install flow/flow
 ```
 
-## How do I contribute new manifests?
+Say `flow/flow`, with the bucket in front: Scoop's main bucket has a different `flow`,
+Facebook's JavaScript type checker. The command this one puts on your PATH is `flow`.
 
-To make a new manifest contribution, please read the [Contributing
-Guide](https://github.com/ScoopInstaller/.github/blob/main/.github/CONTRIBUTING.md)
-and [App Manifests](https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests)
-wiki page.
+The zip is unsigned, so the first launch shows Windows SmartScreen: **More info → Run
+anyway**, once. Scoop checks it against the SHA-256 that each Flow release publishes
+beside its zip, and the Excavator workflow here picks up new releases every four hours.
+
+Problems with Flow itself belong in [its issues](https://github.com/samartomar/flow/issues).
